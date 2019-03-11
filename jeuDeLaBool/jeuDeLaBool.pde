@@ -1,15 +1,19 @@
 balle bool; 
+TrouFinal trou;
 void setup() 
 { 
-  size(480,700); 
-  bool=new balle(); 
+  size(480, 700); 
+  bool=new balle(50);
+  trou = new TrouFinal(50);
 } 
- 
+
 void draw() 
 { 
   background(0);   
-  bool.deplacement(); 
   bool.bord(); 
-  bool.affich(); 
- 
+  bool.deplacement(); 
+  bool.affich();
+  trou.affich();
+  trou.Fin();
+  println(trou.Trou);
 }

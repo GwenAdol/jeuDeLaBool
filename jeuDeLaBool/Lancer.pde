@@ -1,11 +1,13 @@
 class Lancer{
   PVector Force;
-  
-  Lancer(){
+  balle Sujet;
+  Lancer(balle B){
     Force  = new  PVector();
+    Sujet = B;
   }
   
  void draw(){
+   stroke(0);
    if (mousePressed){
      line(mouseX,mouseY,Force.x,Force.y);  
    }
@@ -16,6 +18,6 @@ class Lancer{
  }
  void mouseReleased(){
    Force.sub(mouseX,mouseY);
-   
+   Sujet.vitesse.add(Force.div(10));
  }
 }

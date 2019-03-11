@@ -5,7 +5,15 @@ class Obs{
   Obs(float X,float Y){
     Pos = new PVector(X,Y);
   }
+  void draw(){}
   
+  boolean Interieur() {
+    if (mouseX>Pos.x && mouseX<Pos.x+TailleX && mouseY>Pos.y && mouseY<Pos.y+TailleY) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 class OTris extends Obs {
@@ -19,7 +27,21 @@ class OTris extends Obs {
     Calcul(B1.PosBalle,Pos);
   }
 }
-
+class ORect extends Obs {
+  
+  ORect(float X,float Y){
+    super(X,Y);
+  }
+  
+  void draw(){
+    stroke(0);
+    fill(255);
+    rect(Pos.x,Pos.y,TailleX,TailleY);
+    
+  }
+  
+  
+}
 
     boolean Calcul(PVector Point , PVector Vecteur){
      boolean Resp = false;

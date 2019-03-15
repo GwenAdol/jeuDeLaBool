@@ -6,12 +6,14 @@ Niveau N1;
 Editeur E1;
 void setup()
 {
-  size(400,600);
-  B1 = new  balle(50);
+  //size(400,600);
+  fullScreen();
+  B1 = new  balle(10);
   L1 = new Lancer(B1);
   M1 = new Menu();
   N1 = new Niveau(0);
   E1 = new Editeur(1);
+  T1 = new OTris(width/2,height/2);
 }
 
 void draw(){
@@ -19,8 +21,8 @@ void draw(){
   background(120); //<>//
   if(!M1.Affiche){
     //N1.draw();
-   //EnJeu();
-   E1.draw();
+   EnJeu();
+  // E1.draw();
   }else{
     M1.draw();
   }
@@ -32,15 +34,16 @@ void EnJeu(){
   B1.affich();
   B1.deplacement();
   B1.bord();
+  T1.draw();
 }
 void mousePressed(){
   M1.mousePressed();
-  E1.mousePressed();
+  //E1.mousePressed();
 }
-void mouseMoved(){
-  E1.mouseMoved();
-}
+//void mouseMoved(){
+//  E1.mouseMoved();
+//}
 
-void keyPressed(){
-  E1.keyPressed();
-}
+//void keyPressed(){
+//  E1.keyPressed();
+//}

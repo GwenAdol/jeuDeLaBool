@@ -7,7 +7,7 @@ class TrouFinal {
   TrouFinal(float xTaille) {
     PosTrou = new PVector();
     taille = xTaille;
-    B1 = bool;
+    //B1 = bool;
     Trou = false;
   }
   void Fin() {/*on test si la balle est sur la position du trou*/

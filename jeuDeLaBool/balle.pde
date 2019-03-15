@@ -17,12 +17,12 @@ class balle//objet
 
   void deplacement()
   {
-    if (mousePressed == true)
+     if(mousePressed == true)
     {
-      PosBalle.x = mouseX;
-      PosBalle.y = mouseY;
+       PosBalle.x = mouseX;
+       PosBalle.y = mouseY;
     }
-
+    
     //on s'occupe de la position 
     PosBalle.x = PosBalle.x + vitesse.x;
     PosBalle.y = PosBalle.y + vitesse.y;

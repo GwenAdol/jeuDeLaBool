@@ -9,7 +9,7 @@ class balle//objet
   {
     PosBalle=new PVector(100, 200);
     acceleration = new PVector();
-    vitesse = new PVector(4, 8);
+    vitesse = new PVector();
     taille=xTaille;    
     fill(255);
     noStroke();

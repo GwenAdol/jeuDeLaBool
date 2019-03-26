@@ -1,19 +1,17 @@
-balle bool; 
-TrouFinal trou;
-void setup() 
-{ 
-  size(480, 700); 
-  bool=new balle(50);
-  trou = new TrouFinal(50);
-} 
 
-void draw() 
-{ 
-  background(0);   
-  bool.bord(); 
-  bool.deplacement(); 
-  bool.affich();
-  trou.affich();
-  trou.Fin();
-  println(trou.Trou);
+Menu   M1;
+void setup()
+{
+  size(400,600);
+  orientation(PORTRAIT);
+  M1 = new Menu();
+}
+
+void draw()
+{
+  background(120);
+  M1.draw();
+}
+
+void mousePressed(){
 }

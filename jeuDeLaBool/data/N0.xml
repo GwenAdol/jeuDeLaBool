@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<N0>
+  <Trou X="200" Y="400"/>
+  <Obstacle ID="0" Type="0" X="200" Y="100"/>
+  <Obstacle ID="1" Type="1" X="100" Y="100"/>
+  <Obstacle ID="2" Type="0" X="100" Y="100"/>
+</N0>
+

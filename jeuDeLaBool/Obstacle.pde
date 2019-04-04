@@ -23,8 +23,14 @@ class OTris extends Obs {
   }
   
   void draw(){
+    pushMatrix();
+    pushStyle();
+    fill(255,0);
     triangle(Pos.x,Pos.y,Pos.x+TailleX,Pos.y,Pos.x+TailleX/2,Pos.y-TailleY);
+    Image.triangle(Pos.x,Pos.y-TailleY,TailleX,TailleY);
     Calcul(B1.PosBalle,Pos);
+    popStyle();
+    popMatrix();
   }
 }
 class ORect extends Obs {
@@ -34,9 +40,13 @@ class ORect extends Obs {
   }
   
   void draw(){
-    stroke(0);
-    fill(255);
-    rect(Pos.x,Pos.y,TailleX,TailleY);
+    pushMatrix();
+    pushStyle();
+    fill(255,0);
+    rect(Pos.x,Pos.y,TailleX,TailleY,10);
+    Image.buisson(Pos.x,Pos.y,TailleX,TailleY);//on donne les même propriété que le rectangle 
+    popStyle();
+    popMatrix();
     
   }
   

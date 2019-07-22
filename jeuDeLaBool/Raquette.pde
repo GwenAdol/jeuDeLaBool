@@ -7,7 +7,7 @@ class Raquette {
   void draw() {
     if (mousePressed) {
       stroke(0, 255, 0);
-      line(Pos, new PVector(mouseX, mouseY));
+      line(Pos.x,Pos.y,mouseX,mouseY);
     }
   }
 
@@ -16,6 +16,6 @@ class Raquette {
   }
   void mouseReleased(balle B) {
     Pos.sub(mouseX, mouseY);
-    B.acceleration.add(Pos);
+    B.acceleration.add(Pos.mult(1/10));
   }
 }

@@ -17,19 +17,7 @@ class Obs {
   }
 }
 
-class OTris extends Obs {
 
-  OTris(float X, float Y) {
-    super(X, Y);
-  }
-
-  void draw() {
-    triangle(Pos.x, Pos.y, Pos.x+TailleX, Pos.y, Pos.x+TailleX/2, Pos.y-TailleY);
-    //if(Calcul(B1.PosBalle,Pos) && Calcul(B1.PosBalle,new PVector(Pos.x+TailleX,Pos.y)) && !Calcul(B1.PosBalle,new PVector(Pos.x+TailleX/2,Pos.y-TailleY))){
-    // println("Ahh"+frameCount);
-    //}
-  }
-}
 class ORect extends Obs {
 
   ORect(float X, float Y) {
@@ -44,19 +32,38 @@ class ORect extends Obs {
   Boolean Collission(balle B) {
     PVector N= new PVector(), R= new PVector();
     short V = 0;
+
+    N = Normal(Vecteur(0));
+    R = (Proj( Vec(B.PosBalle, Point(0)), N));
+
+    line(R, Point(0).sub(100, 0));
+    PVector[] ProjBalle = new PVector[2];
+
+    ProjBalle[0] = new PVector();
+    ProjBalle[1] = new PVector();
+
+    //ProjBalle[0].set(R).add(Point(0));
+    R.normalize(ProjBalle[0]);
+    ProjBalle[0].setMag(R.mag()-B.taille/2);
+    ProjBalle[0].add(Point(0));
+    ellipse(ProjBalle[0]);
+
+    R.normalize(ProjBalle[1]);
+    ProjBalle[1].setMag(R.mag()+B.taille/2);
+    ProjBalle[1].add(Point(0));
+    ellipse(ProjBalle[1]);
+
+    PVector[] ProjRect = new PVector[4];
+    ProjRect[0] = new PVector();
+    ProjRect[1] = new PVector();
+    ProjRect[2] = new PVector();
+    ProjRect[3] = new PVector();
     for (int i = 0; i<4; i++) {
-      
-      N = Normal(Rect.Vecteur(i));
-      R = (Proj(Vec(B.PosBalle, Rect.Point(i)), N));
-      
-      println("! "+ i+" "+str(R.mag() <= B.taille/2));
-      if( R.mag() <= B.taille/2){
-        V++;
-        stroke(255,0,0);
-      }
-      line(N,Rect.Point(i));
-      line(R,Rect.Point(i));
+      ProjRect[i].set(Proj(Point(i), N));
+      ellipse(ProjRect[i]);
     }
+    
+    
     return (V % 2 == 0 && V != 0);
   }
   PVector Vecteur(int i) {

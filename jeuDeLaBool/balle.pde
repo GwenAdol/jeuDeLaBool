@@ -19,10 +19,10 @@ class balle//objet
   {
     if (mousePressed == true)
     {
-      PosBalle.x = mouseX;
-      PosBalle.y = mouseY;
+     // PosBalle.x = mouseX;
+     // PosBalle.y = mouseY;
     }
-
+    vitesse.add(acceleration);
     //on s'occupe de la position 
     PosBalle.x = PosBalle.x + vitesse.x;
     PosBalle.y = PosBalle.y + vitesse.y;
@@ -48,6 +48,7 @@ class balle//objet
         vitesse.y = -(abs(vitesse.y) - (abs(vitesse.y)/200));//frotement de la balle
       } while (vitesse.y > 0.001);
     }
+    acceleration.set(0,0);
   }
 
   void affich()
